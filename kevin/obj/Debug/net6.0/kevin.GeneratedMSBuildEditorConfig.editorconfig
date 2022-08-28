@@ -15,6 +15,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Net2\kevin
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Net2/kevin/Views/Demo/Bt2.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVtb1xCdDIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Net2/kevin/Views/Demo/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGVtb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Net2/kevin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

@@ -1,0 +1,17 @@
+@{
+    ViewData["Title"] = "Giải phương trình bậc 1";
+}
+
+
+<h1>Giải phương trình bậc 1</h1>
+
+<form method="post" action="/Demo">
+    <label for="a">Nhập a</label> 
+    <input type="number" id="a" name="a" />
+    <label for="b">Nhập b</label> 
+    <input type="number" id="b" name="b" />
+
+    <button type="submit">Tính</button>
+</form>
+
+<p> @ViewBag.Result </p> 
