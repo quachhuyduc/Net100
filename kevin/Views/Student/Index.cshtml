@@ -1,0 +1,9 @@
+@ViewBag.CountStudent
+<ul>
+@foreach (var item in ViewData["Students"] as List<Student>)
+
+{
+    <li> @item.StudentName</li>
+   
+}
+</ul>
