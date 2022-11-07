@@ -1,29 +1,33 @@
-@model QuachHuyDucBTH2.Models.Employee
-<h1>Tạo mới 1 nhân viên </h1>
-<hr>
-<div class ="row">
-   <div class ="col-md-4"></div>
-   <form asp-action="Create">
-<div asp-validation-summary="ModelOnly" class ="text-danger"></div>
-<div class ="form-group">
-   <label asp-for="EmployeeID" class ="control-label"></label>
-   <input asp-for="EmployeeID" class = "form-control">
-   <span asp-validation-for="EmployeeID" class="text-danger"></span>
-</div>
-<div class ="form-group">
-   <label asp-for="EmployeeName" class = "control-label"></label>
-   <input asp-for="EmployeeName" class = "form-control">
-   <span asp-validation-for="EmployeeName" class="text-danger"></span>
-
-</div>
-<br>
-<div class ="form-group">
-<input class ="btn-btn-primary" type="submit" value="Save">
-<a class = "btn-btn-success" asp-action="Index">Danh sách nhân viên</a>
-</div>
+@{
+  string employeeID = Guid.NewGuid().ToString();
+}
+<h2 style="margin-bottom: 36px">Add a employee</h2>
+<form asp-action="Create" method="post">
+    <<div class="mb-3">
+      <label for="employee_ID">ID:</label>
+      <input type="text" class="form-control" id="employee_ID" placeholder="Enter employee ID" name="EmployeeID">
+    </div>
+    <div class="mb-3">
+      <label for="employee_Name">Name:</label>
+      <input type="text" class="form-control" id="employee_Name" placeholder="Enter employee name" name="EmployeeName">
+    </div>
+    <div class="mb-3">
+      <label for="employee_Address">Address:</label>
+      <input type="text" class="form-control" id="employee_Address" placeholder="Enter employee address" name="EmployeeAddress">
+    </div>
+    <div class="mb-3">
+      <label for="employee_Phone">Phone:</label>
+      <input type="text" class="form-control" id="employee_Phone" placeholder="Enter employee phone" name="EmployeePhone">
+    </div>
+    <div class="mb-3">
+      <label for="employee_Email">Email:</label>
+      <input type="email" class="form-control" id="employee_Email" placeholder="Enter employee email" name="EmployeeEmail">
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-success" asp-action="Index">Danh sach nhan vien</a>
+    </div>
 </form>
-</div>
-</div>
 
    
 

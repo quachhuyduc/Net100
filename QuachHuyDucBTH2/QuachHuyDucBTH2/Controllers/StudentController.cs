@@ -3,12 +3,14 @@ using Microsoft.AspNetCore.Mvc;
 using QuachHuyDucBTH2.Models;
 using Microsoft.EntityFrameworkCore;
 using QuachHuyDucBTH2.Data;
+using QuachHuyDucBTH2.Models.Process;
 
 namespace QuachHuyDucBTH2.Controllers;
 
 public class StudentController : Controller
 {
     private readonly ApplicationDbContext _context;
+    private ExcelProcess _excelProcess = new ExcelProcess();
     public StudentController (ApplicationDbContext context)
     {
         _context = context;
@@ -53,7 +55,7 @@ public class StudentController : Controller
     }
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(string id, [Bind("StudentID,StudentName")] Student std)
+    public async Task<IActionResult> Edit(string id, [Bind("StudentID,StudentName,StudentAddress, StudentEmail, StudentPhone")] Student std)
     {
           if(id != std.StudentID)
           {
@@ -83,6 +85,7 @@ public class StudentController : Controller
           }
           return View(std);
     }
+    
     public async Task<IActionResult> Delete(string id)
     {
         if(id == null)
@@ -108,6 +111,63 @@ public class StudentController : Controller
         return RedirectToAction(nameof(Index));
 
      }
+      public async Task<IActionResult> Upload()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        
+        public async Task<IActionResult> Upload(IFormFile file)
+        {
+            if(file != null)
+            {
+                string fileExtension = Path.GetExtension(file.FileName);
+                if(fileExtension != ".xls" && fileExtension != ".xlsx")
+                {
+                    ModelState.AddModelError("", "Please choose excel file to upload");
+                }
+                else
+                {
+                    //rename file when upload to server
+                    var fileName = DateTime.Now.ToShortTimeString() + fileExtension;
+                    
+                    var filePath = Path.Combine(Directory.GetCurrentDirectory() + "/Uploads/Excels", fileName);
+                    var fileLocation = new FileInfo(filePath).ToString();
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        //save file to server
+                        await file.CopyToAsync(stream);
+                        //read data from file and write to database
+                        var dt = _excelProcess.ExcelToDataTable(fileLocation);
+                        //using for loop to read data from dt
+                        for(int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            //create a new Student object
+                            var std = new Student();
+                            //set values for attributes
+                            std.StudentID = dt.Rows[i][0].ToString();
+                            std.StudentName = dt.Rows[i][1].ToString();
+                            std.StudentAddress = dt.Rows[i][2].ToString();
+                            std.StudentPhone = dt.Rows[i][3].ToString();
+                            std.StudentEmail = dt.Rows[i][4].ToString();
+                            //add object to Context
+                            if (!StudentExists(std.StudentID))
+                            {
+                                _context.Students.Add(std);    
+                            }
+
+                        }
+                        //save to database
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+
+                    
+                }
+            }
+            return View();
+        }
 
 
 }

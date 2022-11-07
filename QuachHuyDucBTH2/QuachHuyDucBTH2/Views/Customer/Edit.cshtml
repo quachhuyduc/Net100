@@ -1,29 +1,44 @@
 @model QuachHuyDucBTH2.Models.Customer
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["title"] = "Edit";
 }
-<h4>Sửa thông tin khách hàng</h4>
+
+<h4>Update Customer information</h4>
 <hr />
-<div class = "row">
-    <div class = "col-md-4">
-        <form asp-action ="Edit">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CustomerID" />
-            <div class ="form-group">
-            <label asp-for="CustomerName" class = "control-label"></label>
-           <input asp-for="CustomerName" class = "form-control">
-            <span asp-validation-for="CustomerName" class="text-danger"></span>
+            <div class="form-group">
+                <label class="form-label" asp-for="CustomerName">Customer name:</label>
+                <input asp-for="CustomerName" class="form-control" />
+                <span asp-validation-for="CustomerName" class="text-danger"></span>
             </div>
-            <div class ="form-group">
-      <input class ="btn-btn-primary" type="submit" value="Save">
-        <a class = "btn-btn-success" asp-action="Index">Danh sách khách hàng</a>
-        </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="CustomerAddress">Customer Address:</label>
+                <input asp-for="CustomerAddress" class="form-control" />
+                <span asp-validation-for="CustomerAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="CustomerPhone">Customer Phone:</label>
+                <input asp-for="CustomerPhone" class="form-control" />
+                <span asp-validation-for="CustomerPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="CustomerEmail">Customer Email:</label>
+                <input asp-for="CustomerEmail" class="form-control" />
+                <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-success">Danh sách khách hàng</a>
+            </div>
         </form>
-        
     </div>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");};
 }

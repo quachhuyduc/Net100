@@ -1,29 +1,44 @@
 @model QuachHuyDucBTH2.Models.Employee
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["title"] = "Edit";
 }
-<h4>Sửa thông tin nhân viên</h4>
+
+<h4>Update Employee information</h4>
 <hr />
-<div class = "row">
-    <div class = "col-md-4">
-        <form asp-action ="Edit">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="EmployeeID" />
-            <div class ="form-group">
-            <label asp-for="EmployeeName" class = "control-label"></label>
-           <input asp-for="EmployeeName" class = "form-control">
-            <span asp-validation-for="EmployeeName" class="text-danger"></span>
+            <div class="form-group">
+                <label class="form-label" asp-for="EmployeeName">Employee name:</label>
+                <input asp-for="EmployeeName" class="form-control" />
+                <span asp-validation-for="EmployeeName" class="text-danger"></span>
             </div>
-            <div class ="form-group">
-      <input class ="btn-btn-primary" type="submit" value="Save">
-        <a class = "btn-btn-success" asp-action="Index">Danh sách nhân viên</a>
-        </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="EmployeeAddress">Employee Address:</label>
+                <input asp-for="EmployeeAddress" class="form-control" />
+                <span asp-validation-for="EmployeeAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="EmployeePhone">Employee Phone:</label>
+                <input asp-for="EmployeePhone" class="form-control" />
+                <span asp-validation-for="EmployeePhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="EmployeeEmail">Employee Email:</label>
+                <input asp-for="EmployeeEmail" class="form-control" />
+                <span asp-validation-for="EmployeeEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-success">Danh sách nhân viên</a>
+            </div>
         </form>
-        
     </div>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");};
 }

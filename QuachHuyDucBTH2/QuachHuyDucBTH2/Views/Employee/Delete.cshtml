@@ -1,22 +1,40 @@
 @model QuachHuyDucBTH2.Models.Employee
 
-@{
-    ViewData["Title"] = "Delete";
+@{ViewData["title"] = "Delete";
 }
 <h3>Bạn có muốn xóa thông tin nhân viên</h3>
 <div>
     <hr />
-    <dl class="row">
-        <dt class ="col-sm-2">
-            @Html.DisplayNameFor(model => model.EmployeeName);
+    <dl class="col">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeName):
         </dt>
-        <dd class ="col-sm-10">
-            @Html.DisplayFor(model => model.EmployeeName);
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeAddress):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeePhone):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeePhone)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeEmail):
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeEmail)
         </dd>
     </dl>
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="EmployeeID" />
-        <input type="submit" value="Delete" class = "btn-btn-danger"/>
-        <a class = "btn-btn-success" asp-action ="Index">Danh sách nhân viên</a>
-    </form>
 </div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="EmployeeID" />
+    <input type="submit" class="btn btn-danger" value="Delete" />
+    <a class="btn btn-success" asp-action="Index">Danh sách nhân viên</a>
+</form>

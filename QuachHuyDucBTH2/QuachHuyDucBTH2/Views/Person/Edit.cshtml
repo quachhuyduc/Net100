@@ -1,29 +1,44 @@
 @model QuachHuyDucBTH2.Models.Person
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["title"] = "Edit";
 }
-<h4>Sửa thông tin Người</h4>
+
+<h4>Update Person information</h4>
 <hr />
-<div class = "row">
-    <div class = "col-md-4">
-        <form asp-action ="Edit">
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="PersonID" />
-            <div class ="form-group">
-            <label asp-for="PersonName" class = "control-label"></label>
-           <input asp-for="PersonName" class = "form-control">
-            <span asp-validation-for="PersonName" class="text-danger"></span>
+            <div class="form-group">
+                <label class="form-label" asp-for="PersonName">Person name:</label>
+                <input asp-for="PersonName" class="form-control" />
+                <span asp-validation-for="PersonName" class="text-danger"></span>
             </div>
-            <div class ="form-group">
-      <input class ="btn-btn-primary" type="submit" value="Save">
-        <a class = "btn-btn-success" asp-action="Index">Danh sách Người</a>
-        </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="PersonAddress">Person Address:</label>
+                <input asp-for="PersonAddress" class="form-control" />
+                <span asp-validation-for="PersonAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="PersonPhone">Person Phone:</label>
+                <input asp-for="PersonPhone" class="form-control" />
+                <span asp-validation-for="PersonPhone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="PersonEmail">Person Email:</label>
+                <input asp-for="PersonEmail" class="form-control" />
+                <span asp-validation-for="PersonEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-success">Danh sách người</a>
+            </div>
         </form>
-        
     </div>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");};
 }

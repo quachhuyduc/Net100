@@ -1,29 +1,28 @@
 @model IEnumerable<QuachHuyDucBTH2.Models.Person>
-    <p>
-        <a class = "btn btn-success" asp-action="Create"> Create a new Person</a> 
-        </p>
-        <table class="table table-all">
-             <tr>
-                <th>
-                   Person Id
-                </th>
-                <th>
-                    Person Name
-                </th>
-                <th></th>
-             </tr>
-             @foreach (var item in Model)
-             {
-                <tr>
-                    <td>@Html.DisplayFor(m => item.PersonID)</td>
-                    <td>@Html.DisplayFor(m => item.PersonName)</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.PersonID">Sửa</a>
-                        <a asp-action="Delete" asp-route-id="@item.PersonID">Xóa</a>
-
-                    </td>
-                </tr>
-             }
-
-
-        </table>
+  <p>
+    <a  class="btn btn-success" asp-action="Create">Create a Person</a>
+    <a  class="btn btn-success" asp-action="Upload">Upload Persons</a>
+</p>
+<table class="table table-all">
+    <tr>
+        <th>Person ID</th>
+        <th>Person Name</th>
+        <th>Person Address</th>
+        <th>Person Phone</th>
+        <th>Person Email</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@Html.DisplayFor(m => item.PersonID)</td>
+            <td>@Html.DisplayFor(m => item.PersonName)</td>
+            <td>@Html.DisplayFor(m => item.PersonAddress)</td>
+            <td>@Html.DisplayFor(m => item.PersonPhone)</td>
+            <td>@Html.DisplayFor(m => item.PersonEmail)</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PersonID" class="btn btn-success">Sửa</a>
+                <a asp-action="Delete" asp-route-id="@item.PersonID" class="btn btn-danger">Xóa</a>
+            </td>
+        </tr>
+    }
+</table>

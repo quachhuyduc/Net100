@@ -282,3 +282,7 @@ D:\Net2\QuachHuyDucBTH2\QuachHuyDucBTH2\bin\Debug\net6.0\runtimes\unix\lib\net6.
 D:\Net2\QuachHuyDucBTH2\QuachHuyDucBTH2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\Net2\QuachHuyDucBTH2\QuachHuyDucBTH2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\Net2\QuachHuyDucBTH2\QuachHuyDucBTH2\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+D:\Net2\QuachHuyDucBTH2\QuachHuyDucBTH2\bin\Debug\net6.0\EPPlus.dll
+D:\Net2\QuachHuyDucBTH2\QuachHuyDucBTH2\bin\Debug\net6.0\EPPlus.Interfaces.dll
+D:\Net2\QuachHuyDucBTH2\QuachHuyDucBTH2\bin\Debug\net6.0\EPPlus.System.Drawing.dll
+D:\Net2\QuachHuyDucBTH2\QuachHuyDucBTH2\bin\Debug\net6.0\Microsoft.IO.RecyclableMemoryStream.dll

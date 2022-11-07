@@ -21,7 +21,19 @@ namespace QuachHuyDucBTH2.Migrations
                     b.Property<string>("CustomerID")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("CustomerAddress")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomerEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomerPhone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -35,7 +47,19 @@ namespace QuachHuyDucBTH2.Migrations
                     b.Property<string>("EmployeeID")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("EmployeeAddress")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmployeeEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("EmployeeName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EmployeePhone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -49,7 +73,19 @@ namespace QuachHuyDucBTH2.Migrations
                     b.Property<string>("PersonID")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PersonAddress")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PersonEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PersonName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PersonPhone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -63,7 +99,19 @@ namespace QuachHuyDucBTH2.Migrations
                     b.Property<string>("StudentID")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("StudentAddress")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StudentEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("StudentName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("StudentPhone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
