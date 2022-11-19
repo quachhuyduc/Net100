@@ -10,7 +10,7 @@ using QuachHuyDucBTH2.Data;
 namespace QuachHuyDucBTH2.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221107043747_Create_Table_Student")]
+    [Migration("20221119042703_Create_Table_Student")]
     partial class Create_Table_Student
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,7 +23,19 @@ namespace QuachHuyDucBTH2.Migrations
                     b.Property<string>("CustomerID")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("CustomerAddress")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomerEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("CustomerName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("CustomerPhone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -58,12 +70,38 @@ namespace QuachHuyDucBTH2.Migrations
                     b.ToTable("Employees");
                 });
 
+            modelBuilder.Entity("QuachHuyDucBTH2.Models.Faculty", b =>
+                {
+                    b.Property<string>("FacultyID")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FacultyName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("FacultyID");
+
+                    b.ToTable("Faculty");
+                });
+
             modelBuilder.Entity("QuachHuyDucBTH2.Models.Person", b =>
                 {
                     b.Property<string>("PersonID")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("PersonAddress")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PersonEmail")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("PersonName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("PersonPhone")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -77,11 +115,7 @@ namespace QuachHuyDucBTH2.Migrations
                     b.Property<string>("StudentID")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("StudentAddress")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("StudentEmail")
+                    b.Property<string>("FacultyID")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -89,13 +123,22 @@ namespace QuachHuyDucBTH2.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("StudentPhone")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.HasKey("StudentID");
 
+                    b.HasIndex("FacultyID");
+
                     b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("QuachHuyDucBTH2.Models.Student", b =>
+                {
+                    b.HasOne("QuachHuyDucBTH2.Models.Faculty", "Faculty")
+                        .WithMany()
+                        .HasForeignKey("FacultyID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Faculty");
                 });
 #pragma warning restore 612, 618
         }

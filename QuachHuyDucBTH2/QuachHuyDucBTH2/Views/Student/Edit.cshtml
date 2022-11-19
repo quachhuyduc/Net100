@@ -1,35 +1,30 @@
 @model QuachHuyDucBTH2.Models.Student
 
+
+
 @{
     ViewData["title"] = "Edit";
 }
 
-<h4>Update Student information</h4>
+<h4>Update student information</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="StudentID" />
             <div class="form-group">
-                <label class="form-label" asp-for="StudentName">Student Name:</label>
+                <label class="form-label" asp-for="StudentID">Student name:</label>
+                <input asp-for="StudentID" class="form-control" value="@Model.StudentID" readonly />
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="StudentName">Student name:</label>
                 <input asp-for="StudentName" class="form-control" />
                 <span asp-validation-for="StudentName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label class="form-label" asp-for="StudentAddress">Student Address:</label>
-                <input asp-for="StudentAddress" class="form-control" />
-                <span asp-validation-for="StudentAddress" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="form-label" asp-for="StudentPhone">Student Phone:</label>
-                <input asp-for="StudentPhone" class="form-control" />
-                <span asp-validation-for="StudentPhone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="form-label" asp-for="StudentEmail">Student Email:</label>
-                <input asp-for="StudentEmail" class="form-control" />
-                <span asp-validation-for="StudentEmail" class="text-danger"></span>
+                <label class="form-label" asp-for="FacultyID">Faculty:</label>
+                <select asp-for="FacultyID" class="form-control" asp-items="ViewBag.FacultyID"></select>
+                <span asp-validation-for="FacultyID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

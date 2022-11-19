@@ -1,30 +1,32 @@
+@model Student
 @{
-  string studentID = Guid.NewGuid().ToString();
+    ViewData["Title"] = "Create a Student";
 }
-<h2 style="margin-bottom: 36px">Add a student</h2>
-<form asp-action="Create" method="post">
-    <<div class="mb-3">
-      <label for="student_ID">ID:</label>
-      <input type="text" class="form-control" id="student_ID" placeholder="Enter student ID" name="studentID">
+<h4>Create a Student</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="form-label" asp-for="StudentID">Student ID:</label>
+                <input asp-for="StudentID" class="form-control" value="@ViewBag.StudentID" readonly />
+                <span asp-validation-for="StudentID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="StudentName">Student name:</label>
+                <input asp-for="StudentName" class="form-control" />
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-label" asp-for="FacultyID">Faculty:</label>
+                <select asp-for="FacultyID" class="form-control" asp-items="ViewBag.FacultyID"></select>
+                <span asp-validation-for="FacultyID" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-5" >
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-success">Student List</a>
+            </div>
+        </form>
     </div>
-    <div class="mb-3">
-      <label for="student_Name">Name:</label>
-      <input type="text" class="form-control" id="student_Name" placeholder="Enter student name" name="StudentName">
-    </div>
-    <div class="mb-3">
-      <label for="student_Address">Address:</label>
-      <input type="text" class="form-control" id="student_Address" placeholder="Enter student address" name="StudentAddress">
-    </div>
-    <div class="mb-3">
-      <label for="student_Phone">Phone:</label>
-      <input type="text" class="form-control" id="student_Phone" placeholder="Enter student phone" name="StudentPhone">
-    </div>
-    <div class="mb-3">
-      <label for="student_Email">Email:</label>
-      <input type="email" class="form-control" id="student_Email" placeholder="Enter student email" name="StudentEmail">
-    </div>
-    <div class="mb-3">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a class="btn btn-success" asp-action="Index">Danh sach sinh vien</a>
-    </div>
-</form>
+</div>

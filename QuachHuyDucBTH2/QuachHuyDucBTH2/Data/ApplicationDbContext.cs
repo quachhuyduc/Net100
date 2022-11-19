@@ -13,5 +13,6 @@ namespace QuachHuyDucBTH2.Data
         public DbSet<Person> Persons {get;set;}
         public DbSet<Employee> Employees{get;set;}
         public DbSet<Customer> Customers{get;set;}
+        public DbSet<QuachHuyDucBTH2.Models.Faculty> Faculty{get;set;} = default!;
     }
 }

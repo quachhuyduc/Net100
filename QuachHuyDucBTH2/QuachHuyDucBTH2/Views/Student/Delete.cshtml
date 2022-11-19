@@ -5,7 +5,7 @@
 <h3>Bạn có muốn xóa thông tin sinh viên</h3>
 <div>
     <hr />
-    <dl class="col">
+    <dl class="row">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.StudentName):
         </dt>
@@ -13,22 +13,10 @@
             @Html.DisplayFor(model => model.StudentName)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.StudentAddress):
+            @Html.DisplayNameFor(model => model.Faculty!.FacultyName):
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.StudentAddress)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.StudentPhone):
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.StudentPhone)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.StudentEmail):
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.StudentEmail)
+            @Html.DisplayFor(model => model.Faculty!.FacultyName)
         </dd>
     </dl>
 </div>
